@@ -1,0 +1,47 @@
+export const site = {
+  name: "OrbitFlo",
+  domain: "orbitflo.com",
+  url: "https://orbitflo.com",
+  tagline: "We Don't Just Build Websites — We Build Digital Ecosystems.",
+  description: "[TODO: copy from Claude]",
+  navigation: [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "Work", href: "/work" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ],
+  services: [
+    "Website Development",
+    "Ads",
+    "Social Media",
+    "Branding & Content",
+    "SEO & Analytics",
+    "Tech Maintenance",
+  ],
+  contact: {
+    email: "[TODO]",
+    phone: "[TODO]",
+    whatsapp: "[TODO]",
+  },
+  home: {
+    eyebrow: "[TODO: copy from Claude]",
+    subline: "[TODO: copy from Claude]",
+    primaryCta: "Get in touch",
+    secondaryCta: "[TODO: copy from Claude]",
+    servicesEyebrow: "[TODO: copy from Claude]",
+    servicesTitle: "[TODO: copy from Claude]",
+    servicesSubline: "[TODO: copy from Claude]",
+    closingEyebrow: "[TODO: copy from Claude]",
+    closingTitle: "[TODO: copy from Claude]",
+    closingSubline: "[TODO: copy from Claude]",
+  },
+  placeholders: {
+    title: "[TODO: copy from Claude]",
+    message: "Coming soon",
+  },
+  footer: {
+    note: "[TODO: copy from Claude]",
+    copyright: "© {year} OrbitFlo. All rights reserved.",
+  },
+} as const;
