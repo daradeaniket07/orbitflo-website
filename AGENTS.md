@@ -25,7 +25,7 @@
 - Use semantic HTML, keyboard-visible focus, mobile-first responsive layouts, and no horizontal overflow.
 - Respect `prefers-reduced-motion` for all animation.
 - Add page metadata for routes and keep sitemap, robots, and Organization structured data current.
-- Keep search indexing disabled during development (`robots` metadata must use `index: false` and `follow: false`, and `robots.txt` must disallow all crawlers). Explicitly enable indexing at launch after confirming the production setup.
+- Keep search indexing disabled during development with root metadata `robots: { index: false, follow: false }`. At launch, remove the noindex metadata and add the sitemap line to `robots.txt`.
 - Prefer Next.js built-in features and avoid dependencies beyond the approved stack.
 
 ## Page roadmap
