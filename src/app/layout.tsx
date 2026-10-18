@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     url: site.url,
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 
