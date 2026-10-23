@@ -26,6 +26,8 @@
 - Respect `prefers-reduced-motion` for all animation.
 - Add page metadata for routes and keep sitemap, robots, and Organization structured data current.
 - Keep search indexing disabled during development with root metadata `robots: { index: false, follow: false }`. At launch, remove the noindex metadata and add the sitemap line to `robots.txt`.
+- Deployment workflow: after each task, run `npm run lint` and `npm run build`, commit with a clear message, and push to `main`. Every push deploys to the live site automatically; do not leave changes unpushed.
+- TODO: Create an Open Graph image. Until one exists, do not set `twitter:card` to `summary_large_image`.
 - Prefer Next.js built-in features and avoid dependencies beyond the approved stack.
 
 ## Page roadmap

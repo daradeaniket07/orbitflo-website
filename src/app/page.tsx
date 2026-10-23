@@ -4,10 +4,13 @@ import { OrbitVisual } from "@/components/orbit-visual";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: site.tagline,
+  title: { absolute: site.seoTitle },
   description: site.description,
+  alternates: {
+    canonical: site.url,
+  },
   openGraph: {
-    title: `${site.name} — ${site.tagline}`,
+    title: site.seoTitle,
     description: site.description,
     url: site.url,
   },
@@ -55,13 +58,13 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          <p className="service-note">{site.home.servicesClosingLine}</p>
         </div>
       </section>
 
       <section className="closing-section section-pad">
         <div className="container closing-panel">
           <div className="closing-glow" aria-hidden="true" />
-          <span className="eyebrow">{site.home.closingEyebrow}</span>
           <h2>{site.home.closingTitle}</h2>
           <p>{site.home.closingSubline}</p>
           <Link className="button" href="/contact">

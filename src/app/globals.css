@@ -292,6 +292,14 @@ h3 {
   transition: transform 180ms ease;
 }
 
+.service-note {
+  max-width: 600px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
 .text-link:hover span {
   transform: translateX(4px);
 }
