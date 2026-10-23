@@ -22,7 +22,7 @@ export function SiteHeader() {
             className="wordmark-image"
             height={site.logo.height}
             priority
-            sizes="110px"
+            sizes="(max-width: 719px) 101px, 120px"
             src={site.logo.src}
             width={site.logo.width}
           />

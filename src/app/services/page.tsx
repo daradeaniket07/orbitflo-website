@@ -48,7 +48,7 @@ export default function ServicesPage() {
                   className="service-detail-image"
                   height={800}
                   loading="lazy"
-                  sizes="(min-width: 720px) 32vw, calc(100vw - 40px)"
+                  sizes="(min-width: 720px) 40vw, calc(100vw - 40px)"
                   src={service.image}
                   width={800}
                 />
