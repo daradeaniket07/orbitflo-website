@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/config/site";
 
 export function SiteFooter() {
@@ -6,7 +7,14 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <Link className="wordmark" href="/" aria-label={`${site.name} home`}>
-          {site.name}<span className="wordmark-dot">.</span>
+          <Image
+            alt="OrbitFlo"
+            className="wordmark-image"
+            height={site.logo.height}
+            sizes="110px"
+            src={site.logo.src}
+            width={site.logo.width}
+          />
         </Link>
         <p>{site.footer.note}</p>
         <p className="copyright">

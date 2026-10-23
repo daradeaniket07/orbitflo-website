@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { site } from "@/config/site";
 
@@ -16,7 +17,15 @@ export function SiteHeader() {
           aria-label={`${site.name} home`}
           onClick={() => setMenuOpen(false)}
         >
-          {site.name}<span className="wordmark-dot">.</span>
+          <Image
+            alt="OrbitFlo"
+            className="wordmark-image"
+            height={site.logo.height}
+            priority
+            sizes="110px"
+            src={site.logo.src}
+            width={site.logo.width}
+          />
         </Link>
 
         <button

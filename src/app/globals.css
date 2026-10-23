@@ -102,14 +102,15 @@ a:focus-visible {
 }
 
 .wordmark {
-  font-family: var(--font-heading), sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.07em;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
 }
 
-.wordmark-dot {
-  color: var(--primary);
+.wordmark-image {
+  display: block;
+  width: 109px;
+  height: 28px;
 }
 
 .primary-navigation {
@@ -786,6 +787,11 @@ h3 {
 }
 
 @media (max-width: 719px) {
+  .wordmark-image {
+    width: 90px;
+    height: 23px;
+  }
+
   .hero-section {
     display: block;
     min-height: 100svh;

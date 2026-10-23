@@ -2,6 +2,11 @@ export const site = {
   name: "OrbitFlo",
   domain: "www.orbitflo.com",
   url: "https://www.orbitflo.com",
+  logo: {
+    src: "/brand/orbitflo-wordmark.png",
+    width: 249,
+    height: 64,
+  },
   seoTitle: "OrbitFlo | Web Design, Branding & Digital Growth Studio",
   tagline: "We Don't Just Build Websites — We Build Digital Ecosystems.",
   description: "OrbitFlo is a digital studio building websites, branding, ads, social media and SEO that work together to help your business grow.",

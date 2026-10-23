@@ -14,12 +14,15 @@
 - `src/components/`: shared site header, footer, and visual components
 - `src/config/site.ts`: central source for site identity, navigation, contact placeholders, and Home copy
 - `src/config/services.ts`: central source for service sections, inclusions, package names, and package details; keep package enquiries amount-free
+- `brand-source/`: original brand artwork; keep source files intact
+- `public/brand/`: optimized brand assets used by the site
 - `public/`: static assets
 - `src/app/globals.css`: design tokens, Tailwind theme mapping, and global responsive styling
 
 ## Conventions
 
 - Keep brand colors in CSS custom properties in `src/app/globals.css`, mapped into Tailwind's theme there.
+- Use `next/image` for supplied brand marks; preserve originals in `brand-source/` and use optimized copies from `public/brand/`.
 - Keep repeated site copy, navigation, and contact values in `src/config/site.ts`; keep service and package content in `src/config/services.ts`.
 - Use `[TODO]` markers for copy and contact information that has not been supplied. Do not invent client results or contact details.
 - Build reusable UI in `src/components/`; route files should stay focused on page content and metadata.
@@ -58,6 +61,7 @@
 - Shared responsive header, mobile navigation, and footer
 - Home skeleton with config-driven services and reduced-motion-aware orbit visual
 - Services page with config-driven service and package details; Home service cards link to its section anchors
+- Header and footer wordmark, app icons, multi-size favicon, and Organization logo metadata
 - Placeholder routes for Work, About, and Contact
 - Root metadata, Open Graph defaults, Organization JSON-LD, sitemap, and robots
 - npm scripts for lint, type-check, build, and local development
@@ -70,4 +74,4 @@
 - Jijau Industries and Dandeli Adventure Resorts case study content
 - Full Phase 1 page designs/content, including actual Work, About, and Contact pages
 - Phase 2 pages
-- Final social sharing image and any approved brand assets
+- Final social sharing image

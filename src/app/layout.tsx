@@ -46,6 +46,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: site.name,
   url: site.url,
+  logo: new URL(site.logo.src, site.url).toString(),
   description: site.description,
 };
 
