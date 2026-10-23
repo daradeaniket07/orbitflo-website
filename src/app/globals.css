@@ -6,7 +6,7 @@
   --surface: #0b1020;
   --border: rgba(255, 255, 255, 0.08);
   --text: #f5f7fa;
-  --muted: #9aa4b2;
+  --muted: #a6afbd;
   --primary: #2f6bff;
   --glow: #6ea8ff;
 }
@@ -308,16 +308,6 @@ h3 {
   transform: translateX(4px);
 }
 
-.hero-index {
-  position: absolute;
-  right: max(20px, calc((100vw - 1200px) / 2));
-  bottom: 24px;
-  z-index: 1;
-  color: rgba(245, 247, 250, 0.38);
-  font-size: 0.64rem;
-  letter-spacing: 0.16em;
-}
-
 .orbit-visual {
   position: absolute;
   top: 50%;
@@ -417,7 +407,7 @@ h3 {
 .closing-panel h2 {
   max-width: 620px;
   margin: 15px 0 0;
-  font-size: clamp(2.5rem, 6vw, 4.7rem);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 500;
   letter-spacing: -0.07em;
   line-height: 1.04;
@@ -624,13 +614,14 @@ h3 {
 
 @media (max-width: 719px) {
   .hero-section {
+    display: block;
     min-height: 100svh;
-    padding: clamp(100px, 13vh, 116px) 0 44px;
+    padding: 88px 0 24px;
   }
 
   .hero-content {
     min-height: 0;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .hero-copy {
@@ -643,10 +634,12 @@ h3 {
 
   .orbit-visual {
     top: auto;
-    right: -35%;
-    bottom: -24%;
-    width: min(100vw, 500px);
-    opacity: 0.75;
+    right: auto;
+    bottom: auto;
+    position: relative;
+    width: min(68vw, 250px);
+    margin: 18px auto 0;
+    opacity: 0.58;
     transform: none;
   }
 

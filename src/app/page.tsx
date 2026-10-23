@@ -41,7 +41,6 @@ export default function Home() {
           </div>
         </div>
         <OrbitVisual />
-        <span className="hero-index" aria-hidden="true">01 / ORBITFLO</span>
       </section>
 
       <section className="services-section section-pad" id="services">
