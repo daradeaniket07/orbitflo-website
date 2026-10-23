@@ -4,6 +4,7 @@ export const serviceItems = [
     title: "Website Development",
     image: "/images/service-website.webp",
     imageAlt: "Glowing layered browser windows representing website development",
+    description: "Fast, modern websites designed to turn visitors into enquiries.",
     intro: "Websites built to look credible and bring in enquiries.",
     included: [
       "Business and portfolio websites",
@@ -18,6 +19,7 @@ export const serviceItems = [
     title: "Ads",
     image: "/images/service-ads.webp",
     imageAlt: "Blue orbital rings and planets representing connected ad campaigns",
+    description: "Targeted campaigns that put your offer in front of the right people.",
     intro: "Paid campaigns set up and managed to reach the right customers.",
     included: [
       "Instagram and Facebook ads setup",
@@ -32,6 +34,7 @@ export const serviceItems = [
     title: "Social Media",
     image: "/images/service-social.webp",
     imageAlt: "A network of glowing blue planets representing social connections",
+    description: "Consistent, on-brand content that keeps your audience engaged.",
     intro: "Consistent, on-brand content that keeps your business visible.",
     included: [
       "Basic: 8-12 posts with captions each month",
@@ -44,6 +47,7 @@ export const serviceItems = [
     title: "Branding & Content",
     image: "/images/service-branding.webp",
     imageAlt: "Translucent blue spheres forming an abstract visual identity",
+    description: "Logos, visuals and messaging that make your business look and sound credible.",
     intro: "Visuals and words that make your business look and sound credible.",
     included: [
       "Logo and brand kit",
@@ -59,6 +63,7 @@ export const serviceItems = [
     title: "SEO & Analytics",
     image: "/images/service-seo.webp",
     imageAlt: "A rising blue analytics chart representing search growth",
+    description: "Be found on Google, and see exactly what's working.",
     intro: "Get found on Google, and see exactly what's working.",
     included: [
       "On-page SEO",
@@ -73,6 +78,7 @@ export const serviceItems = [
     title: "Tech Maintenance",
     image: "/images/service-maintenance.webp",
     imageAlt: "A blue shield and gears representing website security and maintenance",
+    description: "Updates, security and support so your site stays fast and online.",
     intro: "Updates, security and support so your site stays fast and online.",
     included: [
       "Monthly support with backups and updates",

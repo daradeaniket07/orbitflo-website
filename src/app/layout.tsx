@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { FloatingWhatsapp } from "@/components/floating-whatsapp";
 import { site } from "@/config/site";
 import "./globals.css";
 
@@ -49,6 +50,8 @@ const organizationSchema = {
   name: site.name,
   url: site.url,
   logo: new URL(site.logo.src, site.url).toString(),
+  email: site.contact.email,
+  telephone: site.contact.phone,
   description: site.description,
 };
 
@@ -70,6 +73,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <FloatingWhatsapp />
       </body>
     </html>
   );
