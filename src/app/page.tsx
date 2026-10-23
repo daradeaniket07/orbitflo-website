@@ -24,7 +24,11 @@ export default function Home() {
         <div className="container hero-content">
           <div className="hero-copy">
             <span className="eyebrow"><span className="status-dot" />{site.home.eyebrow}</span>
-            <h1>{site.tagline}</h1>
+            <h1>
+              <span className="hero-title-line">We Don&apos;t Just Build</span>{" "}
+              <span className="hero-title-line">Websites&nbsp;—&nbsp;We Build</span>{" "}
+              <span className="hero-title-line">Digital Ecosystems.</span>
+            </h1>
             <p className="hero-subline">{site.home.subline}</p>
             <div className="hero-actions">
               <Link className="button" href="/contact">
@@ -35,9 +39,9 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <OrbitVisual />
-          <span className="hero-index" aria-hidden="true">01 / ORBITFLO</span>
         </div>
+        <OrbitVisual />
+        <span className="hero-index" aria-hidden="true">01 / ORBITFLO</span>
       </section>
 
       <section className="services-section section-pad" id="services">

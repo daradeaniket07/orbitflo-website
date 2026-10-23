@@ -27,6 +27,7 @@
 - Add page metadata for routes and keep sitemap, robots, and Organization structured data current.
 - Keep search indexing disabled during development with root metadata `robots: { index: false, follow: false }`. At launch, remove the noindex metadata and add the sitemap line to `robots.txt`.
 - Deployment workflow: after each task, run `npm run lint` and `npm run build`, commit with a clear message, and push to `main`. Every push deploys to the live site automatically; do not leave changes unpushed.
+- For Home layout updates, regenerate and commit full-page screenshots at 1440×900, 1280×720, and 390×844 in `screenshots/`, overwriting the existing files.
 - TODO: Create an Open Graph image. Until one exists, do not set `twitter:card` to `summary_large_image`.
 - Prefer Next.js built-in features and avoid dependencies beyond the approved stack.
 
