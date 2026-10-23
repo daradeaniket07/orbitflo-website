@@ -38,6 +38,11 @@ export const site = {
     title: "[TODO: copy from Claude]",
     message: "Coming soon",
   },
+  notFound: {
+    title: "This page drifted off course.",
+    message: "The page you're looking for doesn't exist or has moved.",
+    homeLabel: "Back to home",
+  },
   footer: {
     note: "Websites, branding and growth for businesses ready to stand out.",
     copyright: "© {year} OrbitFlo. All rights reserved.",

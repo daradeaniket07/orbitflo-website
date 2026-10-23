@@ -32,8 +32,10 @@ export const metadata: Metadata = {
     url: site.url,
   },
   twitter: {
+    card: "summary_large_image",
     title: site.seoTitle,
     description: site.description,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: false,

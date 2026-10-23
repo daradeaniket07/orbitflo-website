@@ -1,4 +1,5 @@
 import { site } from "@/config/site";
+import { ClosingCta } from "@/components/closing-cta";
 
 type ComingSoonProps = {
   page: string;
@@ -6,10 +7,13 @@ type ComingSoonProps = {
 
 export function ComingSoon({ page }: ComingSoonProps) {
   return (
-    <main className="page-shell container" id="main-content">
-      <span className="eyebrow">{page}</span>
-      <h1>{site.placeholders.title}</h1>
-      <p>{site.placeholders.message}</p>
+    <main id="main-content">
+      <div className="page-shell container">
+        <span className="eyebrow">{page}</span>
+        <h1>{site.placeholders.title}</h1>
+        <p>{site.placeholders.message}</p>
+      </div>
+      <ClosingCta />
     </main>
   );
 }

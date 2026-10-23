@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ClosingCta } from "@/components/closing-cta";
 import { OrbitVisual } from "@/components/orbit-visual";
 import { serviceItems } from "@/config/services";
@@ -58,6 +59,15 @@ export default function Home() {
             {serviceItems.map((service, index) => (
               <li key={service.id}>
                 <Link className="service-card" href={`/services#${service.id}`}>
+                  <Image
+                    alt={service.imageAlt}
+                    className="service-card-image"
+                    height={800}
+                    loading="lazy"
+                    sizes="96px"
+                    src={service.image}
+                    width={800}
+                  />
                   <span className="service-number">0{index + 1}</span>
                   <h3>{service.title}</h3>
                   <span aria-hidden="true" className="service-arrow">↗</span>

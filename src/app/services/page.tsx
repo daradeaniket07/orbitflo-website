@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ClosingCta } from "@/components/closing-cta";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { serviceItems, servicesPage } from "@/config/services";
@@ -41,15 +42,28 @@ export default function ServicesPage() {
             tabIndex={-1}
           >
             <ScrollReveal className="service-detail-grid">
-              <div className="service-detail-summary">
-                <h2 id={`${service.id}-title`}>{service.title}</h2>
-                <p>{service.intro}</p>
+              <div className="service-detail-image-wrap">
+                <Image
+                  alt={service.imageAlt}
+                  className="service-detail-image"
+                  height={800}
+                  loading="lazy"
+                  sizes="(min-width: 720px) 32vw, calc(100vw - 40px)"
+                  src={service.image}
+                  width={800}
+                />
               </div>
-              <div className="service-detail-included">
-                <h3>{servicesPage.includedLabel}</h3>
-                <ul>
-                  {service.included.map((item) => <li key={item}>{item}</li>)}
-                </ul>
+              <div className="service-detail-content">
+                <div className="service-detail-summary">
+                  <h2 id={`${service.id}-title`}>{service.title}</h2>
+                  <p>{service.intro}</p>
+                </div>
+                <div className="service-detail-included">
+                  <h3>{servicesPage.includedLabel}</h3>
+                  <ul>
+                    {service.included.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
               </div>
             </ScrollReveal>
           </section>

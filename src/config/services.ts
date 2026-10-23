@@ -2,6 +2,8 @@ export const serviceItems = [
   {
     id: "website-development",
     title: "Website Development",
+    image: "/images/service-website.webp",
+    imageAlt: "Glowing layered browser windows representing website development",
     intro: "Websites built to look credible and bring in enquiries.",
     included: [
       "Business and portfolio websites",
@@ -14,6 +16,8 @@ export const serviceItems = [
   {
     id: "ads",
     title: "Ads",
+    image: "/images/service-ads.webp",
+    imageAlt: "Blue orbital rings and planets representing connected ad campaigns",
     intro: "Paid campaigns set up and managed to reach the right customers.",
     included: [
       "Instagram and Facebook ads setup",
@@ -26,6 +30,8 @@ export const serviceItems = [
   {
     id: "social-media",
     title: "Social Media",
+    image: "/images/service-social.webp",
+    imageAlt: "A network of glowing blue planets representing social connections",
     intro: "Consistent, on-brand content that keeps your business visible.",
     included: [
       "Basic: 8-12 posts with captions each month",
@@ -36,6 +42,8 @@ export const serviceItems = [
   {
     id: "branding-content",
     title: "Branding & Content",
+    image: "/images/service-branding.webp",
+    imageAlt: "Translucent blue spheres forming an abstract visual identity",
     intro: "Visuals and words that make your business look and sound credible.",
     included: [
       "Logo and brand kit",
@@ -49,6 +57,8 @@ export const serviceItems = [
   {
     id: "seo-analytics",
     title: "SEO & Analytics",
+    image: "/images/service-seo.webp",
+    imageAlt: "A rising blue analytics chart representing search growth",
     intro: "Get found on Google, and see exactly what's working.",
     included: [
       "On-page SEO",
@@ -61,6 +71,8 @@ export const serviceItems = [
   {
     id: "tech-maintenance",
     title: "Tech Maintenance",
+    image: "/images/service-maintenance.webp",
+    imageAlt: "A blue shield and gears representing website security and maintenance",
     intro: "Updates, security and support so your site stays fast and online.",
     included: [
       "Monthly support with backups and updates",
