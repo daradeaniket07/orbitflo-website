@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ClosingCta } from "@/components/closing-cta";
 import { OrbitVisual } from "@/components/orbit-visual";
+import { serviceItems } from "@/config/services";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -53,11 +55,13 @@ export default function Home() {
             <p>{site.home.servicesSubline}</p>
           </div>
           <ul className="service-grid">
-            {site.services.map((service, index) => (
-              <li className="service-card" key={service}>
-                <span className="service-number">0{index + 1}</span>
-                <h3>{service}</h3>
-                <span aria-hidden="true" className="service-arrow">↗</span>
+            {serviceItems.map((service, index) => (
+              <li key={service.id}>
+                <Link className="service-card" href={`/services#${service.id}`}>
+                  <span className="service-number">0{index + 1}</span>
+                  <h3>{service.title}</h3>
+                  <span aria-hidden="true" className="service-arrow">↗</span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -65,16 +69,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="closing-section section-pad">
-        <div className="container closing-panel">
-          <div className="closing-glow" aria-hidden="true" />
-          <h2>{site.home.closingTitle}</h2>
-          <p>{site.home.closingSubline}</p>
-          <Link className="button" href="/contact">
-            {site.home.primaryCta}<span aria-hidden="true">↗</span>
-          </Link>
-        </div>
-      </section>
+      <ClosingCta />
     </main>
   );
 }

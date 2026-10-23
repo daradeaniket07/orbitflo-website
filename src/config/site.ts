@@ -12,14 +12,6 @@ export const site = {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
-  services: [
-    "Website Development",
-    "Ads",
-    "Social Media",
-    "Branding & Content",
-    "SEO & Analytics",
-    "Tech Maintenance",
-  ],
   contact: {
     email: "[TODO]",
     phone: "[TODO]",

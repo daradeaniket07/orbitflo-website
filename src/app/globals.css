@@ -556,6 +556,179 @@ h3 {
   color: var(--muted);
 }
 
+.services-page-hero {
+  border-bottom: 1px solid var(--border);
+  padding: 184px 0 88px;
+  background:
+    radial-gradient(ellipse at 78% 35%, rgba(47, 107, 255, 0.12), transparent 36%),
+    linear-gradient(180deg, rgba(11, 16, 32, 0.38), transparent 88%);
+}
+
+.services-page-intro {
+  max-width: 980px;
+}
+
+.services-page-intro h1 {
+  max-width: 900px;
+  margin: 22px 0 20px;
+  font-size: clamp(3rem, 7.2vw, 6rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.services-page-intro p {
+  max-width: 660px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.14rem);
+  line-height: 1.7;
+}
+
+.service-details {
+  border-top: 1px solid var(--border);
+}
+
+.service-detail {
+  scroll-margin-top: 28px;
+  border-bottom: 1px solid var(--border);
+  padding-block: clamp(44px, 7vw, 78px);
+}
+
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(36px, 8vw, 120px);
+}
+
+.service-detail-summary h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.service-detail-summary p {
+  max-width: 430px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.service-detail-included h3 {
+  margin: 2px 0 20px;
+  color: var(--glow);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-detail-included ul,
+.package-card ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-detail-included li,
+.package-card li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.service-detail-included li::before,
+.package-card li::before {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(110, 168, 255, 0.45);
+  content: "";
+}
+
+.service-packages {
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(11, 16, 32, 0.55), transparent 88%);
+}
+
+.service-packages-heading {
+  max-width: 740px;
+  margin-bottom: 38px;
+}
+
+.service-packages-heading h2 {
+  max-width: 620px;
+  margin: 15px 0 16px;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.service-packages-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.package-card {
+  height: 100%;
+}
+
+.package-card article {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.025), transparent 58%), var(--surface);
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.package-card h3 {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+.package-card ul {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.package-button {
+  margin-top: auto;
+}
+
+.package-note {
+  margin: 26px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 @media (min-width: 720px) {
   .container {
     width: min(100% - 80px, 1200px);
@@ -647,6 +820,32 @@ h3 {
     padding-block: 82px;
   }
 
+  .services-page-hero {
+    padding: 132px 0 68px;
+  }
+
+  .services-page-intro h1 {
+    font-size: clamp(2.75rem, 11vw, 3.5rem);
+  }
+
+  .service-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .service-detail-included ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .package-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .package-button {
+    width: 100%;
+    justify-content: center;
+  }
+
   .section-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -666,6 +865,12 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .services-page .service-detail-grid,
+  .services-page .package-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   *,
