@@ -12,10 +12,11 @@ function ProjectArtwork({ project, compact = false }: { project: Project; compac
   if (project.image) {
     return (
       <Image
-        alt={`${project.name} website project`}
+        alt={project.imageAlt ?? `${project.name} website project`}
         className="project-art-image"
         fill
-        sizes={compact ? "(min-width: 1024px) 40vw, 100vw" : "(min-width: 720px) 40vw, 100vw"}
+        loading="lazy"
+        sizes={compact ? "(min-width: 720px) 50vw, 100vw" : "(min-width: 720px) 40vw, 100vw"}
         src={project.image}
       />
     );

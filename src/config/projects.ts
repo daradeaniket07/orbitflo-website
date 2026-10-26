@@ -5,6 +5,7 @@ export type Project = {
   tag: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   url?: string;
   challenge?: string;
   solution?: string;
@@ -18,6 +19,8 @@ export const projects: Project[] = [
     sector: "Manufacturing · 3-wheeler and 2-wheeler seating",
     tag: "Website design and development",
     description: "A website for a manufacturer of 3-wheeler and 2-wheeler seating, built to showcase their products and make it easy for customers to get in touch.",
+    image: "/images/work/jijau-home.webp",
+    imageAlt: "Homepage of the Jijau Industries website",
   },
   {
     slug: "dandeli-adventure-resorts",
@@ -25,5 +28,7 @@ export const projects: Project[] = [
     sector: "Tourism · Adventure resort",
     tag: "Website design and development",
     description: "A website for an adventure resort in Dandeli, built to showcase the stay and its experiences and make enquiries easy.",
+    image: "/images/work/dandeli-home.webp",
+    imageAlt: "Homepage of the Dandeli Adventure Resorts website",
   },
 ];

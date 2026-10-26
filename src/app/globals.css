@@ -629,13 +629,14 @@ h3 {
 }
 
 .project-teaser-art {
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 0;
+  aspect-ratio: 16 / 10;
+  margin: 14px 14px 0;
+  border-radius: 14px;
 }
 
 .project-art-image {
   object-fit: cover;
+  object-position: top;
 }
 
 .project-art-initials {
@@ -1061,7 +1062,7 @@ h3 {
 .project-art {
   width: min(100%, 440px);
   justify-self: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
 }
 
 .project-art .project-art-initials {
@@ -1643,7 +1644,7 @@ body:has(.contact-form input:focus, .contact-form select:focus, .contact-form te
   .project-art {
     width: 100%;
     max-width: none;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 
   .project-detail-content {
