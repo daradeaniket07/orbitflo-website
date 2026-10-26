@@ -16,9 +16,8 @@ type FormValues = {
 type FieldErrors = Partial<Record<"name" | "email" | "phone" | "need" | "message", string>>;
 
 const emptyValues: FormValues = { name: "", email: "", phone: "", need: "", message: "", botcheck: "" };
-const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
-export function ContactForm() {
+export function ContactForm({ accessKey }: { accessKey?: string }) {
   const [values, setValues] = useState<FormValues>(emptyValues);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [packageId, setPackageId] = useState("");

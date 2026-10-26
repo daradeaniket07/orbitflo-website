@@ -7,16 +7,15 @@ export const site = {
     width: 249,
     height: 64,
   },
-  seoTitle: "OrbitFlo | Web Design, Branding & Digital Growth Studio",
+  seoTitle: "OrbitFlo | Web Design & Digital Marketing in Maharashtra, India",
   tagline: "We Don't Just Build Websites — We Build Digital Ecosystems.",
-  description: "OrbitFlo is a digital studio building websites, branding, ads, social media and SEO that work together to help your business grow.",
+  description: "Websites, branding, ads, social media and SEO for small and mid-sized businesses across India, including Mumbai, Pune and Chhatrapati Sambhajinagar.",
   socials: [
     { name: "Instagram", url: "" },
     { name: "LinkedIn", url: "" },
     { name: "Facebook", url: "" },
     { name: "YouTube", url: "" },
   ],
-  business: { city: "", region: "", country: "IN" },
   about: {
     metadata: {
       title: "About | OrbitFlo",

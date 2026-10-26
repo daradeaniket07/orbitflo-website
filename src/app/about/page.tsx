@@ -25,7 +25,7 @@ const personSchema = founder.name
 
 export default function AboutPage() {
   const heroTitle = founder.name
-    ? site.about.hero.namedTitle.replace("{name}", founder.name)
+    ? site.about.hero.namedTitle.replace("{name}", founder.firstName)
     : site.about.hero.title;
 
   return (

@@ -5,6 +5,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { serviceItems, servicesPage } from "@/config/services";
 import { site } from "@/config/site";
 import { JsonLd } from "@/components/json-ld";
+import { WhereWeWork } from "@/components/where-we-work";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(servicesPage.metadata.title, servicesPage.metadata.description, "/services");
@@ -93,6 +94,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <WhereWeWork />
       <ClosingCta />
     </main>
   );

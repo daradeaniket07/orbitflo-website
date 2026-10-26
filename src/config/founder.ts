@@ -1,5 +1,6 @@
 export const founder = {
-  name: "",
+  name: "Aniket Suresh Darade",
+  firstName: "Aniket",
   role: "Founder & Software Engineer",
   photo: "",
   mark: "/brand/orbitflo-mark.png",

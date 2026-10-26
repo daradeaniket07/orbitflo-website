@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { business } from "@/config/business";
 import { site } from "@/config/site";
 
 function SocialIcon({ name }: { name: string }) {
@@ -16,6 +17,10 @@ function SocialIcon({ name }: { name: string }) {
 }
 
 export function SiteFooter() {
+  const serviceAreaNote = business.whereWeWork.footerLine
+    .replace("{region}", business.region)
+    .replace("{country}", business.countryName);
+
   return (
     <footer className="site-footer" id="site-footer">
       <div className="container footer-grid">
@@ -31,6 +36,7 @@ export function SiteFooter() {
             />
           </Link>
           <p>{site.footer.note}</p>
+          <p className="footer-service-area">{serviceAreaNote}</p>
         </div>
         <nav aria-label={site.footer.linksTitle} className="footer-column">
           <h2>{site.footer.linksTitle}</h2>

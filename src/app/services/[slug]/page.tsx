@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ClosingCta } from "@/components/closing-cta";
 import { JsonLd } from "@/components/json-ld";
+import { business } from "@/config/business";
 import { getServiceById, serviceDetails, servicesPage } from "@/config/services";
 import { site } from "@/config/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
@@ -41,7 +42,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     serviceType: service.title,
     description: service.intro,
     provider: { "@type": "Organization", name: site.name, url: site.url },
-    areaServed: { "@type": "Country", name: "India" },
+    areaServed: business.areaServed,
   };
   const faqSchema = {
     "@context": "https://schema.org",

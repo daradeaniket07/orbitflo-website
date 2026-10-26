@@ -4,6 +4,8 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { FloatingWhatsapp } from "@/components/floating-whatsapp";
+import { business } from "@/config/business";
+import { founder } from "@/config/founder";
 import { site } from "@/config/site";
 import { indexingAllowed } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
@@ -58,6 +60,8 @@ const organizationSchema = {
   email: site.contact.email,
   telephone: site.contact.phone,
   description: site.description,
+  founder: { "@type": "Person", name: founder.name, jobTitle: founder.role },
+  areaServed: business.areaServed,
   sameAs: site.socials.flatMap(({ url }) => url ? [url] : []),
 };
 
@@ -68,21 +72,13 @@ const websiteSchema = {
   url: site.url,
 };
 
-const businessSchema = site.business.city
-  ? {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      name: site.name,
-      url: site.url,
-      areaServed: { "@type": "Country", name: "India" },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: site.business.city,
-        ...(site.business.region ? { addressRegion: site.business.region } : {}),
-        addressCountry: site.business.country,
-      },
-    }
-  : undefined;
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.name,
+  url: site.url,
+  areaServed: business.areaServed,
+};
 
 export default function RootLayout({
   children,
@@ -92,7 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <body className={`${spaceGrotesk.variable} ${inter.variable}`}>
-        <JsonLd data={[organizationSchema, websiteSchema, ...(businessSchema ? [businessSchema] : [])]} />
+        <JsonLd data={[organizationSchema, websiteSchema, professionalServiceSchema]} />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script

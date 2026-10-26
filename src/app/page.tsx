@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ClosingCta } from "@/components/closing-cta";
 import { OrbitVisual } from "@/components/orbit-visual";
 import { ProjectCard } from "@/components/project-card";
+import { WhereWeWork } from "@/components/where-we-work";
 import { projects } from "@/config/projects";
 import { serviceItems } from "@/config/services";
 import { site } from "@/config/site";
@@ -106,6 +107,7 @@ export default function Home() {
         </div>
       </section>
 
+      <WhereWeWork />
       <ClosingCta />
     </main>
   );

@@ -7,6 +7,8 @@ import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(site.contactPage.metadata.title, site.contactPage.metadata.description, "/contact");
 
 export default function ContactPage() {
+  const web3FormsAccessKey = process.env.ORBITFLO_FORM || process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
   return (
     <main className="contact-page" id="main-content">
       <JsonLd data={breadcrumbSchema([
@@ -51,7 +53,7 @@ export default function ContactPage() {
             </a>
             <p className="contact-response-time">{site.contactPage.cards.responseTime}</p>
           </div>
-          <ContactForm />
+          <ContactForm accessKey={web3FormsAccessKey} />
         </div>
       </section>
     </main>
