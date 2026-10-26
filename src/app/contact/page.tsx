@@ -1,22 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
+import { JsonLd } from "@/components/json-ld";
 import { site } from "@/config/site";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: site.contactPage.metadata.title },
-  description: site.contactPage.metadata.description,
-  alternates: { canonical: `${site.url}/contact` },
-  openGraph: {
-    title: site.contactPage.metadata.title,
-    description: site.contactPage.metadata.description,
-    url: `${site.url}/contact`,
-  },
-};
+export const metadata = pageMetadata(site.contactPage.metadata.title, site.contactPage.metadata.description, "/contact");
 
 export default function ContactPage() {
   return (
     <main className="contact-page" id="main-content">
+      <JsonLd data={breadcrumbSchema([
+        { name: site.navigation.find(({ href }) => href === "/")?.label ?? site.name, path: "/" },
+        { name: site.navigation.find(({ href }) => href === "/contact")?.label ?? site.name, path: "/contact" },
+      ])} />
       <section className="contact-hero">
         <Image
           alt=""

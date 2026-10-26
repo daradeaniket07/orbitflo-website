@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ClosingCta } from "@/components/closing-cta";
@@ -7,19 +6,9 @@ import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/config/projects";
 import { serviceItems } from "@/config/services";
 import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: site.seoTitle },
-  description: site.description,
-  alternates: {
-    canonical: site.url,
-  },
-  openGraph: {
-    title: site.seoTitle,
-    description: site.description,
-    url: site.url,
-  },
-};
+export const metadata = pageMetadata(site.seoTitle, site.description, "/");
 
 export default function Home() {
   return (
@@ -60,7 +49,7 @@ export default function Home() {
           <ul className="service-grid">
             {serviceItems.map((service, index) => (
               <li key={service.id}>
-                <Link className="service-card" href={`/services#${service.id}`}>
+                <Link className="service-card" href={`/services/${service.id}`}>
                   <Image
                     alt={service.imageAlt}
                     className="service-card-image"

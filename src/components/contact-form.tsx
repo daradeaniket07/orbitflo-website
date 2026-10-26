@@ -13,7 +13,7 @@ type FormValues = {
   botcheck: string;
 };
 
-type FieldErrors = Partial<Record<"name" | "email" | "need" | "message", string>>;
+type FieldErrors = Partial<Record<"name" | "email" | "phone" | "need" | "message", string>>;
 
 const emptyValues: FormValues = { name: "", email: "", phone: "", need: "", message: "", botcheck: "" };
 const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
@@ -46,6 +46,7 @@ export function ContactForm() {
     const nextErrors: FieldErrors = {};
     if (!values.name.trim()) nextErrors.name = site.contactPage.form.nameError;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) nextErrors.email = site.contactPage.form.emailError;
+    if (values.phone.trim() && !/^\+?[0-9][0-9\s().-]{6,}$/.test(values.phone.trim())) nextErrors.phone = site.contactPage.form.phoneError;
     if (!values.need) nextErrors.need = site.contactPage.form.needError;
     if (!values.message.trim()) nextErrors.message = site.contactPage.form.messageError;
     setErrors(nextErrors);
@@ -59,6 +60,7 @@ export function ContactForm() {
 
     if (values.botcheck) {
       setStatus("success");
+      setValues(emptyValues);
       return;
     }
 
@@ -68,10 +70,15 @@ export function ContactForm() {
     }
 
     setIsSending(true);
-    const selectedPackage = servicesPage.packages.items.find(({ id }) => id === packageId);
-    const subject = selectedPackage
-      ? `${site.contactPage.form.subject} — ${selectedPackage.title} package`
-      : site.contactPage.form.subject;
+    const requestedPackage = new URLSearchParams(window.location.search).get("package") ?? "";
+    const messageLabels = site.contactPage.form.messageLabels;
+    const messageBody = [
+      values.message.trim(),
+      `${messageLabels.selectedService}: ${values.need}`,
+      `${messageLabels.package}: ${requestedPackage || messageLabels.none}`,
+      `${messageLabels.pageUrl}: ${window.location.href}`,
+      `${messageLabels.referrerUrl}: ${document.referrer || messageLabels.directVisit}`,
+    ].join("\n\n");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -79,19 +86,23 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: accessKey,
-          subject,
+          subject: site.contactPage.form.subject,
           from_name: values.name.trim(),
           name: values.name.trim(),
           email: values.email.trim(),
           phone: values.phone.trim(),
           need: values.need,
-          message: values.message.trim(),
+          message: messageBody,
           botcheck: values.botcheck,
         }),
       });
       const result = await response.json() as { success?: boolean };
       setStatus(response.ok && result.success ? "success" : "error");
-      if (response.ok && result.success) setValues(emptyValues);
+      if (response.ok && result.success) {
+        setValues(emptyValues);
+        setErrors({});
+        setPackageId("");
+      }
     } catch {
       setStatus("error");
     } finally {
@@ -121,7 +132,7 @@ export function ContactForm() {
           <input
             autoComplete="off"
             id="contact-website"
-            name="website"
+            name="botcheck"
             onChange={(event) => updateValue("botcheck", event.target.value)}
             tabIndex={-1}
             value={values.botcheck}
@@ -163,9 +174,12 @@ export function ContactForm() {
             id="contact-phone"
             name="phone"
             onChange={(event) => updateValue("phone", event.target.value)}
+            aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+            aria-invalid={Boolean(errors.phone)}
             type="tel"
             value={values.phone}
           />
+          {errors.phone && <span className="field-error" id="contact-phone-error">{errors.phone}</span>}
         </div>
         <div className="form-field">
           <label htmlFor="contact-need">{site.contactPage.form.need}</label>
@@ -201,7 +215,14 @@ export function ContactForm() {
           {isSending ? site.contactPage.form.submitting : site.contactPage.form.submit}
           {!isSending && <span aria-hidden="true">↗</span>}
         </button>
-        {status === "success" && <p className="form-status form-status-success" role="status">{site.contactPage.form.success}</p>}
+        {status === "success" && (
+          <div className="form-status form-status-success" role="status">
+            <p>{site.contactPage.form.success}</p>
+            <a className="button form-whatsapp-success" href={site.contact.whatsapp} rel="noopener noreferrer" target="_blank">
+              {site.contactPage.form.chatLabel}<span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        )}
         {status === "error" && (
           <p className="form-status form-status-error" role="alert">
             {site.contactPage.form.error} <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> ·{" "}

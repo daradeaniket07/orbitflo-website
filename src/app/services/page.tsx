@@ -1,27 +1,21 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ClosingCta } from "@/components/closing-cta";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { serviceItems, servicesPage } from "@/config/services";
 import { site } from "@/config/site";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: servicesPage.metadata.title },
-  description: servicesPage.metadata.description,
-  alternates: {
-    canonical: `${site.url}/services`,
-  },
-  openGraph: {
-    title: servicesPage.metadata.title,
-    description: servicesPage.metadata.description,
-    url: `${site.url}/services`,
-  },
-};
+export const metadata = pageMetadata(servicesPage.metadata.title, servicesPage.metadata.description, "/services");
 
 export default function ServicesPage() {
   return (
     <main className="services-page" id="main-content">
+      <JsonLd data={breadcrumbSchema([
+        { name: site.navigation.find(({ href }) => href === "/")?.label ?? site.name, path: "/" },
+        { name: site.navigation.find(({ href }) => href === "/services")?.label ?? site.name, path: "/services" },
+      ])} />
       <section className="services-page-hero">
         <div className="container">
           <ScrollReveal className="services-page-intro">
@@ -63,6 +57,9 @@ export default function ServicesPage() {
                   <ul>
                     {service.included.map((item) => <li key={item}>{item}</li>)}
                   </ul>
+                  <Link className="text-link service-detail-link" href={`/services/${service.id}`}>
+                    {servicesPage.detailLinkLabel}<span aria-hidden="true">→</span>
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

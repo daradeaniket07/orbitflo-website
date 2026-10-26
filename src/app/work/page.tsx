@@ -1,23 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/config/projects";
 import { site } from "@/config/site";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: site.work.metadata.title },
-  description: site.work.metadata.description,
-  alternates: { canonical: `${site.url}/work` },
-  openGraph: {
-    title: site.work.metadata.title,
-    description: site.work.metadata.description,
-    url: `${site.url}/work`,
-  },
-};
+export const metadata = pageMetadata(site.work.metadata.title, site.work.metadata.description, "/work");
 
 export default function WorkPage() {
   return (
     <main className="work-page" id="main-content">
+      <JsonLd data={breadcrumbSchema([
+        { name: site.navigation.find(({ href }) => href === "/")?.label ?? site.name, path: "/" },
+        { name: site.navigation.find(({ href }) => href === "/work")?.label ?? site.name, path: "/work" },
+      ])} />
       <section className="services-page-hero">
         <div className="container">
           <div className="services-page-intro">

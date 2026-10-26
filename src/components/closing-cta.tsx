@@ -2,7 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/config/site";
 
-export function ClosingCta() {
+type ClosingCtaProps = {
+  title?: string;
+  description?: string;
+  label?: string;
+};
+
+export function ClosingCta({ title = site.home.closingTitle, description = site.home.closingSubline, label = site.home.primaryCta }: ClosingCtaProps) {
   return (
     <section className="closing-section section-pad">
       <div className="container closing-panel">
@@ -17,10 +23,10 @@ export function ClosingCta() {
         />
         <div aria-hidden="true" className="closing-background" />
         <div className="closing-glow" aria-hidden="true" />
-        <h2>{site.home.closingTitle}</h2>
-        <p>{site.home.closingSubline}</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
         <Link className="button" href="/contact">
-          {site.home.primaryCta}<span aria-hidden="true">↗</span>
+          {label}<span aria-hidden="true">↗</span>
         </Link>
       </div>
     </section>

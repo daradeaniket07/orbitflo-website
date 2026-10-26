@@ -10,6 +10,55 @@ export const site = {
   seoTitle: "OrbitFlo | Web Design, Branding & Digital Growth Studio",
   tagline: "We Don't Just Build Websites — We Build Digital Ecosystems.",
   description: "OrbitFlo is a digital studio building websites, branding, ads, social media and SEO that work together to help your business grow.",
+  socials: [
+    { name: "Instagram", url: "" },
+    { name: "LinkedIn", url: "" },
+    { name: "Facebook", url: "" },
+    { name: "YouTube", url: "" },
+  ],
+  business: { city: "", region: "", country: "IN" },
+  about: {
+    metadata: {
+      title: "About | OrbitFlo",
+      description: "OrbitFlo is a digital studio building websites, branding and growth systems for businesses that want to be found, trusted and chosen online.",
+    },
+    hero: {
+      eyebrow: "About",
+      title: "A software engineer helping small and mid-sized businesses grow online.",
+      namedTitle: "Hi, I'm {name}. A software engineer helping small and mid-sized businesses grow online.",
+      intro: "OrbitFlo is a digital studio built on one idea: your website, brand and marketing should work together to bring you customers.",
+    },
+    founder: {
+      title: "Who's behind OrbitFlo",
+      paragraphs: [
+        "I'm a software engineer, and I started OrbitFlo to help small and mid-sized businesses get a digital presence that works as hard as they do: a fast, well-built website, a brand that looks credible, and marketing that connects to it.",
+        "Because I come from an engineering background, I care about the parts you can't see: speed, security, clean code and sites that are easy to maintain. And because I run OrbitFlo myself, you deal directly with the person building your project, from the first conversation to launch and beyond.",
+      ],
+    },
+    expectations: {
+      title: "What you can expect",
+      items: [
+        { title: "Direct access", description: "You talk to me, not a sales team or a chain of account managers." },
+        { title: "Plain language", description: "Clear explanations and next steps, with no jargon." },
+        { title: "Built properly", description: "Fast, mobile-ready, secure websites built to be maintained." },
+        { title: "Support after launch", description: "Updates, fixes and improvements once you're live." },
+      ],
+    },
+    work: {
+      title: "Work so far",
+      description: "Recent projects include websites for a manufacturer of 3-wheeler and 2-wheeler seating and an adventure resort in Dandeli.",
+      link: "See our work",
+    },
+    name: {
+      title: "Our name",
+      description: "The orbit in our logo reflects how we work: every part of your digital presence should move around one centre, your business goals.",
+    },
+    closing: {
+      title: "Let's talk about your business.",
+      description: "Tell me what you're building and I'll reply with clear next steps.",
+      link: "Get in touch",
+    },
+  },
   navigation: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
@@ -99,6 +148,16 @@ export const site = {
       subject: "New enquiry from orbitflo.com",
       packageNote: "Enquiring about the {package} package",
       honeypotLabel: "Leave this field empty",
+      phoneError: "Enter a valid phone number or leave this field empty.",
+      chatLabel: "Chat on WhatsApp",
+      messageLabels: {
+        selectedService: "Selected service",
+        package: "Package",
+        pageUrl: "Page URL",
+        referrerUrl: "Referrer URL",
+        none: "None",
+        directVisit: "Direct visit",
+      },
     },
   },
   placeholders: {
@@ -106,6 +165,10 @@ export const site = {
     message: "Coming soon",
   },
   notFound: {
+    metadata: {
+      title: "Page not found | OrbitFlo",
+      description: "The page you're looking for doesn't exist or has moved. Return to OrbitFlo home.",
+    },
     title: "This page drifted off course.",
     message: "The page you're looking for doesn't exist or has moved.",
     homeLabel: "Back to home",
@@ -114,6 +177,7 @@ export const site = {
     note: "Websites, branding and growth for businesses ready to stand out.",
     linksTitle: "Explore",
     contactTitle: "Contact",
+    socialsLabel: "Social media",
     copyright: "© {year} OrbitFlo. All rights reserved.",
   },
 } as const;

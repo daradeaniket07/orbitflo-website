@@ -13,6 +13,7 @@
 - `src/app/`: App Router pages, global styles, metadata routes
 - `src/config/site.ts`: central source for site identity, navigation, contact details, and page copy
 - `src/config/services.ts`: service descriptions, inclusions, and package content
+- `src/config/founder.ts`: founder name, role, photo, and brand-mark fallback
 - `src/config/projects.ts`: shared Work and Home project data
 - `src/components/`: shared header, footer, contact form, project cards, and floating WhatsApp link
 - `brand-source/`: original brand and supplied image artwork; keep source files intact
@@ -26,12 +27,17 @@
 - Keep brand colors in CSS custom properties in `src/app/globals.css`, mapped into Tailwind's theme there.
 - Use `next/image` for supplied brand marks and page imagery; preserve originals in `brand-source/` and use optimized copies from `public/brand/` or `public/images/`.
 - Keep repeated site copy, navigation, and contact values in `src/config/site.ts`; keep service and package content in `src/config/services.ts`; keep project details shared in `src/config/projects.ts`.
+- Keep About and service-detail page copy, FAQs, metadata, and links in config files. Do not hard-code page copy in components.
+- Do not add prices or make promises about rankings or results anywhere on the site.
 - Use `[TODO]` markers for copy and contact information that has not been supplied. Do not invent client results or contact details.
 - Build reusable UI in `src/components/`; route files should stay focused on page content and metadata.
 - Use semantic HTML, keyboard-visible focus, mobile-first responsive layouts, and no horizontal overflow.
 - Respect `prefers-reduced-motion` for all animation.
-- Add page metadata for routes and keep sitemap, robots, and Organization structured data current.
-- Keep search indexing disabled during development with root metadata `robots: { index: false, follow: false }`. At launch, remove the noindex metadata and add the sitemap line to `robots.txt`.
+- Add unique title, description, canonical, Open Graph, and Twitter metadata to every page. Keep Organization, WebSite, and breadcrumb structured data current.
+- Search indexing is disabled unless `NEXT_PUBLIC_ALLOW_INDEXING=true`. The same switch controls noindex/nofollow metadata and whether `robots.txt` permits crawling and includes the sitemap URL. Set the variable to `true` only at launch.
+- Optional analytics: set `NEXT_PUBLIC_GA_ID` for Google Analytics 4 and `NEXT_PUBLIC_GSC_VERIFICATION` for Search Console verification. Both are loaded only when set.
+- `src/config/site.ts` stores the Instagram, LinkedIn, Facebook, and YouTube URLs; blank URLs hide their footer icons and are omitted from Organization `sameAs`.
+- Set `src/config/site.ts` business city and region only when confirmed. The ProfessionalService local business schema is omitted until a city is configured; country is `IN`.
 - Deployment workflow: after each task, run `npm run lint` and `npm run build`, commit with a clear message, and push to `main`. Every push deploys to the live site automatically; do not leave changes unpushed.
 - Do not run browser tests or capture screenshots unless the task explicitly requests them. Respect any explicit no-screenshot instruction.
 - Contact delivery uses Web3Forms from the Contact form. Set `NEXT_PUBLIC_WEB3FORMS_KEY` in Vercel under Project Settings → Environment Variables for Production (and Preview/Development when needed), then redeploy. Keep the key out of source control; `.env*` is ignored by Git.
@@ -47,14 +53,15 @@
 - Home: hero, service descriptions, recent work, process steps, and closing CTA implemented
 - Services: service overview, six anchored sections, packages, and shared closing CTA implemented
 - Work / Case Studies: two config-driven project summaries implemented; optional case-study details and live URLs are pending
-- About: placeholder route implemented
-- Contact: contact methods and Web3Forms enquiry form implemented; configure the Web3Forms key in Vercel
+- About: config-driven founder page implemented; name and photo remain empty until supplied, with the OrbitFlo mark as the visual fallback
+- Contact: contact methods and Web3Forms enquiry form implemented with validation, honeypot, package/service and referrer context; configure the Web3Forms key in Vercel
+- Service detail SEO pages implemented for all six services, with config-driven FAQs, related links, JSON-LD, and sitemap entries
+- Site-wide SEO metadata, Organization/WebSite schema, optional local business schema, social profiles, and indexing launch switch implemented
 
 ### Phase 2
 
 - Process
 - Industries / Solutions
-- Individual service pages
 - Blog
 
 ## Status
@@ -65,19 +72,20 @@
 - Dark design tokens and requested fonts
 - Shared responsive header, mobile navigation, and footer
 - Home page with config-driven service descriptions, recent work, process steps, closing CTA, and reduced-motion-aware orbit visual
-- Services page with config-driven service and package details; Home service cards link to its section anchors
+- Services page with config-driven service and package details; existing anchors remain and Home cards link to individual service detail pages
 - Shared projects config used by Home and Work
 - Contact page with click-to-email/call/WhatsApp cards, validated form fields, honeypot, loading/success/error states, package-prefill support, and Web3Forms submission
 - Three-column responsive footer and floating on-brand WhatsApp button
 - Header and footer wordmark, app icons, multi-size favicon, and Organization logo/email/telephone metadata
-- About page placeholder
+- Six service detail pages
+- About page content and founder visual fallback
+- Site-wide metadata and structured data; indexing remains off by default
 - Root metadata, Open Graph defaults, Organization JSON-LD, sitemap, and robots
 - npm scripts for lint, type-check, build, and local development
 
 ### Pending
 
-- Final copy from Claude for remaining pages
-- Real project images and optional case-study challenge/solution/results details for Jijau Industries and Dandeli Adventure Resorts
+- Optional case-study challenge/solution/results details for Jijau Industries and Dandeli Adventure Resorts
 - Set `NEXT_PUBLIC_WEB3FORMS_KEY` in the Vercel project environment before relying on form delivery
-- About page content and design
+- Set `NEXT_PUBLIC_ALLOW_INDEXING=true` only at launch; configure GA/GSC IDs, socials, and confirmed business location only when available
 - Phase 2 pages
